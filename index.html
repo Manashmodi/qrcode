@@ -1,0 +1,109 @@
+<html>
+    <head>
+
+    </head>  
+    <body>
+        <div class="container">
+            <div class="box">
+                <img src="https://i.ibb.co/LCggxQp/qr.png"id="qrcode">
+                <input type="text" id="input"placeholder="Enter qr code data">
+                <button id="qrcodeg">GENRATE QR CODE</button>
+            </div> 
+            
+        </div>
+    </body>
+    <script> 
+        var color = prompt("ENTER YOUR FAVORITE COLOR NAME");
+        document.getElementsByTagName("body")[0].style.background = color;
+        document.getElementsByClassName("container")[0].style.background = color;
+        
+        var qrcode=document.getElementById("qrcode");
+        var input=document.getElementById("input");
+        var gebb=document.getElementById("qrcodeg");
+     
+        gebb.addEventListener("click",()=>{
+            var url=`https://api.qrserver.com/v1/create-qr-code/?size=200*200&data=${input.value}`
+            qrcode.src=url;
+        });
+    </script> 
+    <style>
+        /* CSS for container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  /* CSS for box */
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* CSS for image */
+  #qrcode {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+  }
+  
+  /* CSS for input */
+  #input {
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* CSS for button */
+  #qrcodeg {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* CSS for making page responsive */
+  @media screen and (max-width: 768px) {
+    /* Reduce size of the box */
+    .box {
+      padding: 10px;
+    }
+    
+    /* Reduce size of the image */
+    #qrcode {
+      margin-top: 10px;
+      width: 150px;
+      height: 150px;
+    }
+    
+    /* Adjust width of input */
+    #input {
+      font-size: 14px;
+      width: 80%;
+    }
+    
+    /* Adjust size of button */
+    #qrcodeg {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+    </style>
+</html>
